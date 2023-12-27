@@ -1,7 +1,7 @@
 import { Container, Form } from "./styles";
 import { Background } from './../../Components/Background';
 import { Input } from "../../Components/Input";
-import { Button } from "../../Components/button";
+import { Button } from "../../Components/Button";
 import { FiMail, FiLock } from 'react-icons/fi'
 
 export function SingIn() {

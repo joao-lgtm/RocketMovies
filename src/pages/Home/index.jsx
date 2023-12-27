@@ -1,18 +1,17 @@
 import { Header } from "../../Components/Header";
 import { Container, Content, FilmContent } from "./styles";
-import { Button } from './../../Components/Button/index';
-import { FiPlus, FiStar } from "react-icons/fi"
+import { Button } from './../../Components/Button';
+import { FiPlus } from "react-icons/fi"
 import { Films } from "../../Components/Films";
 
 export function Home() {
-
     return (
         <Container>
             <Header />
 
             <Content>
                 <div>
-                    <span>Meus Filmes</span>
+                    <h2>Meus Filmes</h2>
                     <Button icon={FiPlus} title="Adicionar Nota" />
                 </div>
 
@@ -30,7 +29,7 @@ export function Home() {
                     />
                     <Films
                         title="Interestellar"
-                        score={5}
+                        score={4}
                         description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
                             Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
                             acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.

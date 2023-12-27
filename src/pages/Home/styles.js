@@ -12,6 +12,8 @@ export const Container = styled.div`
      "header"
      "content"
     ;
+
+
 `;
 
 export const Content = styled.main`
@@ -24,9 +26,16 @@ export const Content = styled.main`
    > :first-child {
     display: flex;
     justify-content: space-between;
+
+
+    > h2 {
+        font-size: 2rem;
+        font-weight: 500;
+    }
    }
     
-`
+   
+`;
 
 
 export const FilmContent = styled.div`

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    display: flex;
+    gap: 10px;
     > svg {
-        color: pink;
+        color: #FF859B;
     }
     
     > #stars{
-        fill:pink;
+        fill: #FF859B;
     }    
 
 

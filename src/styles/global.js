@@ -7,7 +7,6 @@ export default createGlobalStyle`
     box-sizing: border-box;
     scrollbar-width: 8px;
     scrollbar-color: ${({ theme }) => theme.COLORS.PINK_1000};
-    border-radius: 20px;
   }
 
   *::-webkit-scrollbar {

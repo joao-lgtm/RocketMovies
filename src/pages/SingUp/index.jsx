@@ -2,7 +2,7 @@ import { Background } from "../../Components/Background";
 import { Container, Form } from "./styles";
 import { Input } from './../../Components/Input';
 import { FiMail,FiLock,FiUser,FiArrowLeft } from "react-icons/fi";
-import { Button } from "../../Components/button";
+import { Button } from "../../Components/Button";
 
 export function SingUp() {
     return (
