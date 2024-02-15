@@ -1,8 +1,9 @@
 import { Background } from "../../Components/Background";
 import { Container, Form } from "./styles";
 import { Input } from './../../Components/Input';
-import { FiMail,FiLock,FiUser,FiArrowLeft } from "react-icons/fi";
+import { FiMail, FiLock, FiUser, FiArrowLeft } from "react-icons/fi";
 import { Button } from "../../Components/Button";
+import { Link } from "react-router-dom";
 
 export function SingUp() {
     return (
@@ -20,8 +21,8 @@ export function SingUp() {
 
                 <Input icon={FiLock} type="password" placeholder="Senha" />
 
-                <Button title="Cadastrar"/>
-                <a href=""><FiArrowLeft/> Voltar para o login</a>
+                <Button title="Cadastrar" />
+                <Link to="/"><FiArrowLeft /> Voltar para o login</Link>
             </Form>
 
             <Background />

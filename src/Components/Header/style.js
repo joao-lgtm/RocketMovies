@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -10,18 +11,20 @@ export const Container = styled.div`
     gap: 64px;
     
     border-bottom: 1px solid #3E3B47;
-    > span {
-        font-size: ${({ theme }) => theme.FONTSIZE.LM};
-        color: ${({theme}) => theme.COLORS.PINK_1000};
-        font-weight: bold;
-    }
 `;
 
-export const Profile = styled.div`
+export const Logo = styled(Link)`
+    font-size: ${({ theme }) => theme.FONTSIZE.LM};
+    color: ${({ theme }) => theme.COLORS.PINK_1000};
+    font-weight: bold;
+`;
+
+export const Profile = styled(Link)`
     display: flex;
     align-items: center;
     gap:15px;
     width: 350px;
+    color: #FFF;
 
     
 
@@ -31,19 +34,20 @@ export const Profile = styled.div`
         align-items: flex-end;
     span{
         font-weight: bold;
+    }  
     }
-    a{
-        color: ${({ theme }) => theme.COLORS.GRAY_100}
-    }
-       
-    }
-    > a {
+    
         
-        > img {
-            width: 64px;
-            height: 64px;
-            border-radius: 35px;
-            border: 2px solid #3E3B47;
-        }
+    > img {
+        width: 64px;
+        height: 64px;
+        border-radius: 35px;
+        border: 2px solid #3E3B47;
     }
+    
+`;
+
+
+export const Exit = styled(Link)`
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
 `;
