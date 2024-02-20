@@ -3,8 +3,14 @@ import { Container, Content, FilmContent } from "./styles";
 import { Button } from './../../Components/Button';
 import { FiPlus } from "react-icons/fi"
 import { Films } from "../../Components/Films";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
+    const navigation = useNavigate();
+
+    function handleNewFIlm(){
+        navigation("/CreateMovie");
+    }
     return (
         <Container>
             <Header />
@@ -12,7 +18,7 @@ export function Home() {
             <Content>
                 <div>
                     <h2>Meus Filmes</h2>
-                    <Button icon={FiPlus} title="Adicionar Nota" />
+                    <Button icon={FiPlus} onClick={handleNewFIlm} title="Adicionar Novo Filme" />
                 </div>
 
 

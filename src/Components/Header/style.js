@@ -19,7 +19,7 @@ export const Logo = styled(Link)`
     font-weight: bold;
 `;
 
-export const Profile = styled(Link)`
+export const Profile = styled.div`
     display: flex;
     align-items: center;
     gap:15px;
@@ -32,13 +32,14 @@ export const Profile = styled(Link)`
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        
     span{
         font-weight: bold;
     }  
     }
     
         
-    > img {
+    img {
         width: 64px;
         height: 64px;
         border-radius: 35px;
@@ -48,6 +49,7 @@ export const Profile = styled(Link)`
 `;
 
 
-export const Exit = styled(Link)`
+export const Exit = styled.div`
     color: ${({ theme }) => theme.COLORS.GRAY_100};
+    cursor: pointer;
 `;

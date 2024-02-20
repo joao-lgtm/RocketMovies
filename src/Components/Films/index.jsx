@@ -4,12 +4,6 @@ import { Categorys, Container, Description, TitleAndStars } from "./styles";
 
 
 export function Films({ title, score, description, category }) {
-    console.log(category)
-
-
-    category.map((element, index) => {
-        console.log(element, index)
-    })
     return (
         <Container>
             <TitleAndStars>
