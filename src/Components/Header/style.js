@@ -22,6 +22,7 @@ export const Logo = styled(Link)`
 export const Profile = styled.div`
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap:15px;
     width: 350px;
     color: #FFF;

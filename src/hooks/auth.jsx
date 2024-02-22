@@ -12,7 +12,6 @@ function AuthProvider({ children }) {
     async function signIn({ email, password }) {
         try {
             const response = await api.post("/sessions", { email, password });
-            console.log(response)
             const { user, token } = response.data;
             localStorage.setItem("@rocknotes:user", JSON.stringify(user));
             localStorage.setItem("@rocknotes:token", token);
