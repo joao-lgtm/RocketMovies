@@ -3,9 +3,9 @@ import { Stars } from "../../Components/Stars";
 import { Categorys, Container, Description, TitleAndStars } from "./styles";
 
 
-export function Films({ title, score, description, category }) {
+export function Films({ title, score, description, category, ...rest}) {
     return (
-        <Container>
+        <Container {...rest}>
             <TitleAndStars>
                 <h2>{title}</h2>
                 <Stars score={score} />
@@ -15,7 +15,7 @@ export function Films({ title, score, description, category }) {
             </Description>
             <Categorys>
                 {category.map((element, index) => (
-                    <Tags key={index} name={element} />
+                    <Tags key={index} name={element.name} />
                 ))}
             </Categorys>
         </Container>

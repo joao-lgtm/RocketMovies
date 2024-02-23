@@ -7,11 +7,11 @@ import { useState } from "react";
 import { api } from "../../services/api";
 
 
-export function Header() {
+export function Header({ setSearch }) {
     const { signOut, user } = useAuth();
     const navigation = useNavigate();
     const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : UserSvg;
-    console.log(user)
+
     function handleSignOut() {
         navigation("/");
         signOut();
@@ -22,7 +22,7 @@ export function Header() {
 
             <Logo to="/">RocketMovies</Logo>
 
-            <Input type="text" placeholder="Pesquisar pelo titulo" />
+            <Input type="text" placeholder="Pesquisar pelo titulo" onChange={e => setSearch(e.target.value)} />
 
 
             <Profile>

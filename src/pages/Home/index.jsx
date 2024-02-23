@@ -4,135 +4,55 @@ import { Button } from './../../Components/Button';
 import { FiPlus } from "react-icons/fi"
 import { Films } from "../../Components/Films";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { api } from "../../services/api";
 
 export function Home() {
+    const [search, setSearch] = useState("");
+    const [films, setFilms] = useState([]);
     const navigation = useNavigate();
 
-    function handleNewFIlm(){
+    function handleNewFilm() {
         navigation("/CreateMovie");
     }
+
+    function handleMoviePreview(id){
+        navigation(`/moviePreview/${id}`)
+    }
+
+    useEffect(() => {
+        async function fetchFilms() {
+            const response = await api.get(`movie?title=${search}`)
+            setFilms(response.data)
+        }
+
+        fetchFilms();
+    }, [search]);
+
     return (
         <Container>
-            <Header />
+            <Header setSearch={setSearch}/>
 
             <Content>
                 <div>
                     <h2>Meus Filmes</h2>
-                    <Button icon={FiPlus} onClick={handleNewFIlm} title="Adicionar Novo Filme" />
+                    <Button icon={FiPlus} onClick={handleNewFilm} title="Adicionar Novo Filme" />
                 </div>
 
-
                 <FilmContent>
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={4}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
-                    <Films
-                        title="Interestellar"
-                        score={5}
-                        description=" Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida.
-                            Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper,
-                            acredita que seu qu arto está assombrado por um fantasma que tenta se comunicar com ela.
-                            Pai e filha descobrem que o fantasma é uma inteligência desconhecida que está enviando mensagens codificadas através de radiação gravitacional,
-                            deixando coordenadas em binário que os levam até uma instalação secreta da NASA liderada pelo professor John Brand."
-                        category={["Ficção Científica", "Drama", "Família"]}
-                    />
+                    {films &&
+                        films.map((film) => (
+                            <Films
+                                key={String(film.id)}
+                                title={film.title}
+                                score={film.rating}
+                                description={film.description}
+                                category={film.tags}
+                                onClick={() => handleMoviePreview(film.id)}
+                            />
+                        ))
+
+                    }
                 </FilmContent>
             </Content>
         </Container>

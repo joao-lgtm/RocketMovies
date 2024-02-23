@@ -8,6 +8,7 @@ export const Container = styled.div`
 
     padding: 32px;
     background: rgb(255 133 155 / 5%);
+    cursor: pointer;
 `;
 
 export const TitleAndStars = styled.div`
