@@ -86,3 +86,11 @@ export const Description = styled.div`
     font-size: ${({ theme }) => theme.FONTSIZE.MEDIUM};
 
 `;
+
+export const Buttons = styled.div`
+    display: flex;
+    margin-top: 15px;
+    > button {
+        width: 100%;
+    }
+`;

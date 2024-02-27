@@ -82,7 +82,7 @@ export function CreateMovie() {
 
                         <NewCategory
                             isNew
-                            placeholder="Novo filme"
+                            placeholder="Nova Categoria"
                             value={newTag}
                             onChange={e => setNewTag(e.target.value)}
                             onClick={handleAddNewTags}
@@ -91,7 +91,7 @@ export function CreateMovie() {
 
 
                     <Buttons>
-                        <Button $exclud title="Excluir filme" /> <Button title="Salvar alteração" onClick={handleCreateMovie} />
+                        <Button title="Salvar alteração" onClick={handleCreateMovie} />
                     </Buttons>
                 </NewFilmContent>
             </Content>

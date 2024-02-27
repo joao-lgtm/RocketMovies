@@ -1,6 +1,7 @@
 import { FiArrowLeft, FiClock } from "react-icons/fi";
 import { Header } from "../../Components/Header";
 import {
+    Buttons,
     Categorys,
     Container,
     Content,
@@ -12,16 +13,20 @@ import {
 import { Stars } from "../../Components/Stars";
 import teste from "../../assets/teste.png"
 import { Tags } from './../../Components/Tags';
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
+import { Button } from "../../Components/Button";
+import { api } from './../../services/api';
 
 export function MoviePreview() {
     const { id } = useParams();
     const [dataFilm, setDataFilm] = useState();
     const [dataUser, setDataUser] = useState();
-    const [avatarURL, setAvatarURL ] = useState();
+    const [avatarURL, setAvatarURL] = useState();
+    const { user } = useAuth();
+    const navigation = useNavigate();
+
 
     useEffect(() => {
         async function fetchFilmDetail() {
@@ -63,9 +68,15 @@ export function MoviePreview() {
         }
 
         fetchFilmDetail();
+
     }, []);
 
-    console.log(dataUser,avatarURL)
+    async function handleDelete(){
+        await api.delete(`movie/${id}`);
+        alert("Filme excluido.");
+        navigation("/");
+    }
+
     return (
         <Container>
             <Header />
@@ -99,6 +110,13 @@ export function MoviePreview() {
 
                     </FilmPreviewContent>
                 }
+
+                {dataFilm && user.id === dataFilm.user_id &&
+                    <Buttons>
+                        <Button $exclud title="Excluir filme" onClick={handleDelete} />
+                    </Buttons>
+                }
+
 
             </Content>
         </Container>

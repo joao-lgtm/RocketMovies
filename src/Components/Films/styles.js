@@ -18,7 +18,14 @@ export const TitleAndStars = styled.div`
 `;
 
 export const Description = styled.div`
-
+    > p {
+        max-height: 250px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    }
+    
 `;
 
 export const Categorys = styled.section`
