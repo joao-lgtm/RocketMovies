@@ -35,7 +35,7 @@ export function Home() {
 
             <Content>
                 <div>
-                    <h2>Meus Filmes</h2>
+                    <h2>Recomendaçôes de filmes</h2>
                     <Button icon={FiPlus} onClick={handleNewFilm} title="Adicionar Novo Filme" />
                 </div>
 

@@ -46,7 +46,9 @@ export const Profile = styled.div`
         border-radius: 35px;
         border: 2px solid #3E3B47;
     }
-    
+    a{
+        color: white;
+    }
 `;
 
 
